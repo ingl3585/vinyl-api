@@ -5,9 +5,11 @@
 
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 const vinylsController = require('./controllers/vinyls');
 const app = express();
 
+app.use(cors());
 app.use(morgan('combined'));
 app.use(express.urlencoded({ extended: false }));
 app.use('/vinyls', vinylsController);
